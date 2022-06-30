@@ -25,5 +25,5 @@ jobs:
         password: ${{ secrets.CENTOSSSH }}
         port: 3332
         script: |
-        cd /home/fullproj/
-        docker-compose up
+          cd /home/fullproj/
+          docker-compose up
