@@ -1,0 +1,29 @@
+name: scp files
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@master
+      with:
+        host: sand-moon.space
+        username: root  
+        password: ${{ secrets.CENTOSSSH }}
+        port: 3332
+        source: "*"
+        target: "/home/fullproj/"
+        
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: sand-moon.space
+        username: root
+        password: ${{ secrets.CENTOSSSH }}
+        port: 3332
+        script: |
+        cd /home/fullproj/
+        docker-compose up
