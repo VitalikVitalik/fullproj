@@ -27,4 +27,3 @@ jobs:
         script: |
           cd /home/fullproj/
           docker-compose up
- 
