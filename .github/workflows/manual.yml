@@ -26,4 +26,4 @@ jobs:
         port: 3332
         script: |
           cd /home/fullproj/
-          docker-compose up
+          docker-compose up -d
